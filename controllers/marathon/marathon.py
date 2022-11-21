@@ -2,20 +2,8 @@
 
 # This controller uses built-in motion manager modules to get the OP2 to walk.
 
-import os
-import sys
 from controller import Robot
-
-try:
-    pythonVersion = 'python%d%d' % (sys.version_info[0], sys.version_info[1])
-    libraryPath = os.path.join(os.environ.get("WEBOTS_HOME"), 'projects', 'robots', 'robotis', 'darwin-op', 'libraries',
-                               pythonVersion)
-    libraryPath = libraryPath.replace('/', os.sep)
-    sys.path.append(libraryPath)
-    from managers import RobotisOp2GaitManager, RobotisOp2MotionManager
-except ImportError:
-    sys.stderr.write("Warning: 'managers' module not found.\n")
-    sys.exit(0)
+from managers import RobotisOp2GaitManager, RobotisOp2MotionManager
 
 # Names of position sensors needed to get the corresponding device and read the measurements.
 positionSensorNames = ('ShoulderR', 'ShoulderL', 'ArmUpperR', 'ArmUpperL',
