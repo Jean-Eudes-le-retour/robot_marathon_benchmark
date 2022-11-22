@@ -1,1 +1,2 @@
 py_local_test.sh
+controllers/marathon_supervisor/build/

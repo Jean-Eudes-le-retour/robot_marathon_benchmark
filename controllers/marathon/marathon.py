@@ -1,8 +1,15 @@
 """Sample Webots controller for the humanoid marathon benchmark."""
 
 # This controller uses built-in motion manager modules to get the OP2 to walk.
-
+import sys
+import os
 from controller import Robot
+
+pythonVersion = 'python%d%d' % (sys.version_info[0], sys.version_info[1])
+libraryPath = os.path.join(os.environ.get("WEBOTS_HOME"), 'projects', 'robots', 'robotis', 'darwin-op', 'libraries',
+                           pythonVersion)
+libraryPath = libraryPath.replace('/', os.sep)
+sys.path.append(libraryPath)
 from managers import RobotisOp2GaitManager, RobotisOp2MotionManager
 
 # Names of position sensors needed to get the corresponding device and read the measurements.

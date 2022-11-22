@@ -64,6 +64,7 @@ int main(int argc, char **argv) {
   wb_robot_wwi_send_text(str_buffer);
 
   printf("performance:%f\n", distance);
+  wb_supervisor_animation_stop_recording();
 
   wb_supervisor_simulation_set_mode(WB_SUPERVISOR_SIMULATION_MODE_PAUSE);
 
